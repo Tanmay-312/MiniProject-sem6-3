@@ -3,6 +3,7 @@ import './index.css';
 import img from '../../../images/dog 1.jpg'
 import img2 from '../../../images/dog 2.jpg'
 import img3 from '../../../images/dog 3.jpg'
+import img4 from '../../../images/Sit with dog.jpg'
 
 const Service = () => {
     return (
@@ -45,6 +46,11 @@ const Service = () => {
                     <div className="col-lg-4 col-sm-6">
                         <div className="service-img mt-4 mt-lg-0">
                             <img src={img3} alt="" className="img-fluid" />
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-sm-6">
+                        <div className="service-img mt-4 mt-lg-0">
+                            <img src={img4} alt="" className="img-fluid" />
                         </div>
                     </div>
                     <div className="col-lg-4">

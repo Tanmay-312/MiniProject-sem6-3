@@ -6,7 +6,9 @@ import './index.css';
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
 import ImageHeading from '../../images/about.jpg'
-import ImageHeading2 from '../../images/about 2.jpg'
+import ImageHeading4 from '../../images/coffeenuts.jpg'
+import ImageHeading3 from '../../images/dog in ocean.jpg'
+import ImageHeading2 from '../../images/dog in ocean 2.jpg'
 import SubHeader from '../Shared/SubHeader';
 
 const About = () => {
@@ -27,7 +29,7 @@ const About = () => {
                     <div className="col-lg-4">
                         <div className='section-title text-center'>
                             <h2 className='text-uppercase'>Our Dog Rescue Success Stories</h2>
-                            <p className='form-text m-0'>Our dog rescue success stories showcase the transformative journey 
+                            <p className='para'>Our dog rescue success stories showcase the transformative journey 
                             of dogs who have found their forever homes through our dedicated efforts. Each story 
                             is a testament to the resilience, love, and hope that dogs bring into our lives. 
                             From overcoming adversity to embracing new beginnings, these heartwarming tales 
@@ -54,6 +56,8 @@ const About = () => {
 
                     <div className="col-lg-8">
                         <img src={ImageHeading} alt="" className="img-fluid rounded shadow" />
+                        <p><br/><br/></p>
+                        <img src={ImageHeading2} alt="" className="img-fluid rounded shadow" />
                     </div>
                 </div>
             </div>
@@ -63,7 +67,7 @@ const About = () => {
                     <div className="col-lg-4">
                         <div className='section-title text-center'>
                             <h2 className='text-uppercase'>Our Achievements</h2>
-                            <p className='form-text m-0'>
+                            <p className='para'>
                                 Our achievements in dog rescue are a testament to our unwavering 
                                 commitment to the welfare and well-being of every canine companion 
                                 in our care. Through dedication, passion, and collaboration, we have 
@@ -71,7 +75,7 @@ const About = () => {
                                 lives of countless dogs and their adoptive families. Here are some of 
                                 our notable achievements:
                                 <br />
-                                1. Successful Adoptions:We have facilitated the adoption of numerous 
+                                1. Successful Adoptions: We have facilitated the adoption of numerous 
                                 rescued dogs, matching them with loving and responsible forever homes 
                                 where they can thrive and flourish.
                                 <br />
@@ -83,12 +87,12 @@ const About = () => {
                                 rehabilitation, and behavioral support to dogs with special needs, 
                                 helping them overcome challenges and improve their quality of life.
                                 <br />
-                                4. Community Engagement:Through outreach programs, educational 
+                                4. Community Engagement: Through outreach programs, educational 
                                 initiatives, and community events, we have raised awareness about 
                                 responsible pet ownership, animal welfare issues, and the importance 
                                 of adoption.
                                 <br />
-                                5. Volunteer and Supporter Engagement:Our dedicated team of volunteers, 
+                                5. Volunteer and Supporter Engagement: Our dedicated team of volunteers, 
                                 supporters, and donors have played a crucial role in our success, 
                                 contributing their time, resources, and expertise to our cause.
                                 <br />
@@ -108,7 +112,9 @@ const About = () => {
                         </div>
                     </div>
                         <div className="col-lg-8">
-                            <img src={ImageHeading2} alt="" className="img-fluid rounded shadow" />
+                            <img src={ImageHeading3} alt="" className="img-fluid rounded shadow" />
+                            <p><br/></p>
+                            <img src={ImageHeading4} alt="" className="img-fluid rounded shadow" />
                         </div>
                     </div>
                 </div>

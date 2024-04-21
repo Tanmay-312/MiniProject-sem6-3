@@ -34,6 +34,7 @@ func main() {
 
 	app.Post("/register", RegisterHandler(db))
 	app.Post("/login", LoginHandler(db))
+	app.Post("/contact", ContactHandler(db))
 
 	log.Fatal(app.Listen(":8080"))
 }
@@ -43,6 +44,14 @@ type User struct {
 	LastName  string `json:"lastName"`
 	Email     string `json:"email"`
 	Password  string `json:"password"`
+}
+
+type ContactForm struct {
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+	Email     string `json:"email"`
+	Subject   string `json:"subject"`
+	Message   string `json:"message"`
 }
 
 func RegisterHandler(db *sql.DB) fiber.Handler {
@@ -85,5 +94,36 @@ func LoginHandler(db *sql.DB) fiber.Handler {
 		}
 
 		return c.Status(http.StatusOK).JSON(map[string]string{"message": "User logged in successfully"})
+	}
+}
+
+func ContactHandler(db *sql.DB) fiber.Handler {
+	return func(c *fiber.Ctx) error {
+		var form ContactForm
+		if err := c.BodyParser(&form); err != nil {
+			return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+				"error": "Invalid request body",
+			})
+		}
+
+		dbinfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+			host, port, user, password, dbname)
+
+		db, err := sql.Open("postgres", dbinfo)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer db.Close()
+
+		_, err = db.Exec("INSERT INTO contact (first_name, last_name, email, subject, message) VALUES ($1, $2, $3, $4, $5)",
+			form.FirstName, form.LastName, form.Email, form.Subject, form.Message)
+		if err != nil {
+			log.Println("Failed to insert data into database:", err)
+			return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+				"error": "Failed to insert data into database",
+			})
+		}
+
+		return c.Status(http.StatusOK).JSON(fiber.Map{"message": "Form data inserted into database successfully"})
 	}
 }

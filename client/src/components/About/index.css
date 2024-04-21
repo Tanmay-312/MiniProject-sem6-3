@@ -9,6 +9,12 @@
     overflow: hidden;
     border-radius: 15px;
 }
+
+.para {
+    font-size: 18px;
+    font-weight: 300;
+}
+
 .say-about {
     position: relative;
 }
